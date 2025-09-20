@@ -3,6 +3,8 @@
 #include "cuda_runtime.h"
 #include "device_launch_parameters.h"
 
+
+// Note that primitive types (like double) can be passed by value in CUDA
 __global__ void gpu_salary_incrementer(const double* original_salary, double* new_salary, int size) {
     int i = blockDim.x * blockIdx.x + threadIdx.x;
     if (i < size) {
